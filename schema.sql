@@ -120,3 +120,13 @@ CREATE POLICY "Admins can insert access codes"
 
 -- Note: You should populate the `access_codes` table or use the Admin panel.
 -- IMPORTANT: To use the admin panel, you MUST manually insert your UUID into `admin_users` via the Supabase Dashboard.
+
+-- Function to reliably check if the current user is an admin
+CREATE OR REPLACE FUNCTION is_admin()
+RETURNS boolean
+SECURITY DEFINER
+AS $$
+BEGIN
+  RETURN EXISTS (SELECT 1 FROM public.admin_users WHERE user_id = auth.uid());
+END;
+$$ LANGUAGE plpgsql;

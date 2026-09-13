@@ -20,18 +20,9 @@ function generateRandomCode(){
 async function checkAdminStatus() {
     currentUser = await AuthService.getCurrentUser();
     if (currentUser) {
-        // Check if user is in admin_users table
-        const { data, error } = await sbClient
-            .from('admin_users')
-            .select('user_id')
-            .eq('user_id', currentUser.id)
-            .single();
-            
-        if (data) {
-            isAdmin = true;
-        } else {
-            isAdmin = false;
-        }
+        // Use RPC to check admin status safely bypassing RLS
+        const { data, error } = await sbClient.rpc('is_admin');
+        isAdmin = (data === true);
     } else {
         isAdmin = false;
     }
