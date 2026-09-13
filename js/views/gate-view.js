@@ -4,6 +4,7 @@ let gateMode = 'code-first'; // 'code-first' | 'signup' | 'login' | 'code-auth'
 
 function renderGate(){
   const app = document.getElementById('app');
+  document.getElementById('logout-btn').style.display = 'none';
   
   if (!currentUser) {
       if (gateMode === 'code-first') {

@@ -12,6 +12,13 @@ function renderDashboard(){
   const doneLessons = SUBJECTS.reduce((a,s)=>a+allLessons(s).filter(l=>lessonDone(l.id)).length,0);
   const clearedSubjects = SUBJECTS.filter(s=>s.levels.every(levelComplete)).length;
 
+  document.getElementById('logout-btn').style.display = 'flex';
+  
+  // Create intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    
+  });
+
   const cards = SUBJECTS.map((s,i)=>{
     const stats = subjectStats(s);
     const subjPct = Math.round((stats.done/stats.total)*100);

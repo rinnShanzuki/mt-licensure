@@ -295,6 +295,21 @@
   .save-status--error .save-status__dot{ background:var(--stamp); }
   @keyframes saveDotPulse{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
 
+  /* Top Right Logout Button */
+  .logout-btn{
+    position:fixed; top:14px; right:14px;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:6px 12px;
+    font-size:12px; font-family:monospace; color:var(--text-muted);
+    z-index:99; display:none; align-items:center; gap:6px;
+    transition:0.2s; cursor:pointer;
+  }
+  .logout-btn:hover {
+    background:var(--surface2);
+    color:var(--text);
+    border-color:var(--text-muted);
+  }
+
   .case-actions{ display:flex; flex-direction:column; align-items:flex-end; gap:4px; margin-top:8px; }
 
   /* ---------- Responsive ---------- */
