@@ -73,13 +73,6 @@ CREATE POLICY "Users can check if they are an admin"
   ON admin_users FOR SELECT 
   USING (auth.uid() = user_id);
 
--- 4. Allow admins to insert new access codes
-CREATE POLICY "Admins can view all admin users" 
-  ON admin_users FOR SELECT 
-  TO authenticated 
-  USING (
-    EXISTS (SELECT 1 FROM admin_users WHERE user_id = auth.uid())
-  );
 
 -- Function to allow admins to securely view user emails for claimed codes
 CREATE OR REPLACE FUNCTION get_admin_recent_codes()
