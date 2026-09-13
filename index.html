@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Level-Up — MedTech Board Reviewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<noscript><div style="padding:40px;text-align:center;font-family:sans-serif;">This reviewer log needs JavaScript enabled to run. Please enable JavaScript in your browser.</div></noscript>
+
+<div id="app"></div>
+<div id="modal-root"></div>
+<div id="toast-layer"></div>
+<div id="confetti-layer"></div>
+<div id="save-status" class="save-status" aria-live="polite"></div>
+<input type="file" id="import-input" accept="application/json,.json" style="display:none" onchange="handleImportFile(event)">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/utils.js"></script>
+<script src="js/services/supabase-client.js"></script>
+<script src="js/services/auth-service.js"></script>
+<script src="js/services/db-service.js"></script>
+<script src="js/models/subjects-data.js"></script>
+<script src="js/models/progress-model.js"></script>
+<script src="js/models/license-model.js"></script>
+<script src="js/views/gate-view.js"></script>
+<script src="js/views/dashboard-view.js"></script>
+<script src="js/views/subject-view.js"></script>
+<script src="js/views/level-modal-view.js"></script>
+<script src="js/views/feedback-view.js"></script>
+<script src="js/controllers/navigation-controller.js"></script>
+<script src="js/controllers/progress-controller.js"></script>
+<script src="js/controllers/backup-controller.js"></script>
+<script src="js/controllers/gate-controller.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
